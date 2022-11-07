@@ -5,3 +5,7 @@ class BlogUser(AbstractUser):
     photo = models.ImageField(
         null=True,
     )
+    # password_confirm = models.CharField(
+    #     max_length=20,
+    #     null=True,
+    # )
