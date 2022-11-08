@@ -15,13 +15,21 @@
     {{ user.username }}
 
     {% if user.photo %}
-    {{ user.photo }}
+    <img src="{{ user.photo.url }}" alt="user-photo">
     {% else %}
     <!-- update_user change to add_photo(create a function -> view -> form)  or try to upload it here-->
     <a href="{% url 'update_photo' request.user.id %}">
         <button>Add a photo</button>
     </a>
     {% endif %}
+
+    <a href="{% url 'update_user' request.user.id %}">
+        <button>Edit profile</button>
+    </a>
+
+    <a href="{% url 'delete_user' request.user.id %}">
+        <button>Delete profile</button>
+    </a>
 
     {% endblock %}
 

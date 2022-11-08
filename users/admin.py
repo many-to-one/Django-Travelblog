@@ -8,6 +8,7 @@ class BlockUserAdmin(UserAdmin):
     add_form = BlogUserCreationForm
     form = BlogUserChangeForm
     list_display = (
+        'id',
         'get_photo',
         'username',
         'email',
@@ -19,7 +20,7 @@ class BlockUserAdmin(UserAdmin):
 
     fieldsets = (
         (None, {'fields': ('username', 'photo', 'email', 'password')}),
-        ('Permissions', {'fields': ('is_admin', 'is_director')}),
+        ('Permissions', {'fields': ('is_admin', 'is_director', 'is_active', 'is_superuser')}),
     )
     add_fieldsets = (
         (None, {
@@ -30,7 +31,7 @@ class BlockUserAdmin(UserAdmin):
 
     def get_photo(self, obj):
         if obj.photo:
-            return mark_safe(f'<img src="{obj.photo.url}" width="100">')
+            return mark_safe(f'<img src="{obj.photo.url}" width="50">')
         else:
             return '-'
 

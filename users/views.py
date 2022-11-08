@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 from .models import *
 from .forms import BlogUserCreationForm, BlogUserChangeForm, BlogPhotoChangeForm
 from django.urls import reverse_lazy
@@ -39,3 +39,8 @@ class ProfileView(DetailView):
     queryset = BlogUser.objects.all()
     template_name = 'profile_view.html'
 
+
+class DeleteUser(DeleteView):
+    model = BlogUser
+    success_url = reverse_lazy('success')
+    template_name = 'delete_profile.html'

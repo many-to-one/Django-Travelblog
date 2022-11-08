@@ -10,16 +10,10 @@
 
     {% block content %}
 
-    <h1>Are you sure?</h1>
-
     <form method="POST">
         {% csrf_token %}
-        <input type="submit" value="Delete">
+        {{ form.as_p }}
     </form>
-
-    <a href="{% url 'profile_view' request.user.id %}">
-        Cancel
-    </a>
 
     {% endblock %}
 
