@@ -12,13 +12,13 @@
 
     {% block content %}
 
-    {{ profile_view.username }}
+    {{ user.username }}
 
-    {% if profile_view.photo %}
-    {{ profile_view.photo }}
+    {% if user.photo %}
+    {{ user.photo }}
     {% else %}
     <!-- update_user change to add_photo(create a function -> view -> form)  or try to upload it here-->
-    <a href="{% url 'update_user' request.user.id %}">
+    <a href="{% url 'update_photo' request.user.id %}">
         <button>Add a photo</button>
     </a>
     {% endif %}

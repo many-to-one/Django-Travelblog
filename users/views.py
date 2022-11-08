@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 from .models import *
-from .forms import BlogUserCreationForm, BlogUserChangeForm
+from .forms import BlogUserCreationForm, BlogUserChangeForm, BlogPhotoChangeForm
 from django.urls import reverse_lazy
 
 
@@ -14,32 +14,28 @@ def success(request):
 
 
 class CreateUser(CreateView):
-    # model = BlogUser
-    # fields = (
-    #     'username',
-    #     'first_name',
-    #     'last_name',
-    #     'email',
-    #     'password1',
-    #     'password_confirm',
-    #     'photo',
-    # )
     form_class = BlogUserCreationForm
     success_url = reverse_lazy('success')
-
     template_name = 'create_user.html'
 
 
-class UpdateUser(CreateView):
+class UpdateUser(UpdateView):
+    model = BlogUser
     form_class = BlogUserChangeForm
-    success_url = reverse_lazy('updated')
+    success_url = reverse_lazy('success')
+    template_name = 'create_user.html'
 
-    template_name = 'update_user.html'
+
+class UpdatePhoto(UpdateView):
+    model = BlogUser
+    form_class = BlogPhotoChangeForm
+    success_url = reverse_lazy('success')
+    template_name = 'create_user.html'
 
 
 class ProfileView(DetailView):
     model = BlogUser
-    context_object_name = 'profile_view' 
+    context_object_name = 'user'
     queryset = BlogUser.objects.all()
     template_name = 'profile_view.html'
 

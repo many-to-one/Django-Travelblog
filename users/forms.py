@@ -19,6 +19,7 @@ class BlogUserCreationForm(UserCreationForm):
         fields = [
             'username',
             'email',
+            'photo',
             'password1',
             'password2',
         ]
@@ -42,3 +43,9 @@ class BlogUserChangeForm(UserChangeForm):
             'new_password1',
             'new_password2',
         ]
+
+
+class BlogPhotoChangeForm(UserChangeForm):
+    class Meta:
+        model = BlogUser
+        fields = ['photo']
