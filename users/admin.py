@@ -19,7 +19,7 @@ class BlockUserAdmin(UserAdmin):
     )
 
     fieldsets = (
-        (None, {'fields': ('username', 'photo', 'email', 'password', 'posts')}),
+        (None, {'fields': ('username', 'photo', 'email', 'password',)}),
         ('Permissions', {'fields': ('is_admin', 'is_director', 'is_active', 'is_superuser')}),
     )
     add_fieldsets = (
@@ -34,5 +34,8 @@ class BlockUserAdmin(UserAdmin):
             return mark_safe(f'<img src="{obj.photo.url}" width="50">')
         else:
             return '-'
+
+    # def get_posts(self, obj):
+    #     return obj.get_all_posts()
 
 admin.site.register(BlogUser, BlockUserAdmin)

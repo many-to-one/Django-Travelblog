@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  {% block content %}
+    {% if post.image %}
+  <img src="{{ post.image.url }}" alt="">
+    {% else %}
+  <a href="{% url 'update_post' post.pk %}">
+      Add photo
+  </a>
+    {% endif %}
+  <h3>{{ post.category }}</h3>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.body }}</p>
+  <p>Author: {{ post.author.username }}</p>
+
+    <a href="{% url 'update_post' post.pk %}">
+      <button>
+          Edit Article
+      </button>
+    </a>
+
+    <a href="{% url 'delete_post' post.pk %}">
+      <button>
+          Delete
+      </button>
+  </a>
+
+
+  {% endblock %}
+
+</body>
+</html>

@@ -8,6 +8,14 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
+    list_display = (
+        'id',
+        'title',
+        'author',
+    )
+    list_display_links = (
+        'title',
+    )
 
 
 admin.site.register(Post, PostAdmin)

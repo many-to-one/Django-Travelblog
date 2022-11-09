@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% block content %}
+
+    <h3>Are you sure?</h3>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type='submit' value="Delete">
+    </form>
+
+    <a href="{% url 'posts_by_author' post.pk %}">
+        Cancel
+    </a>
+
+    {% endblock %}
+
+</body>
+</html>

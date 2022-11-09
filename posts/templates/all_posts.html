@@ -9,15 +9,21 @@
 <body>
 
   {% block content %}
-
+{% for post in posts %}
+    {% if post.image %}
   <img src="{{ post.image.url }}" alt="">
+    {% else %}
+  <p>No image</p>
+    {% endif %}
   <h3>{{ post.category }}</h3>
-  <h1>{{ post.title }}</h1>
-  <p>{{ post.body }}</p>
-  {% for i in request.user_set.all %}
-  {{ i.username }}
-  {% endfor %}
 
+  <h1>{{ post.title }}</h1>
+
+  <p>{{ post.body }}</p>
+
+  <p>Author: {{ post.author.username }}</p>
+
+{% endfor %}
   {% endblock %}
 
 </body>

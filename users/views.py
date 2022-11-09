@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, UpdateView, \
     DeleteView, ListView
+
+from posts.models import Post
 from .models import *
 from .forms import BlogUserCreationForm, BlogUserChangeForm, BlogPhotoChangeForm
 from django.urls import reverse_lazy
@@ -44,7 +46,7 @@ class ProfileView(DetailView):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # Add in a QuerySet of all the books
-        context['post_list'] = Post.objects.all()
+        context['post_list'] = Post.objects.bloguser_set.all()
         return context
 
 
