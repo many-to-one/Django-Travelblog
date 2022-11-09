@@ -1,8 +1,6 @@
 from django.db import models
 from django.urls import reverse
 
-from users.models import BlogUser
-
 
 class Category(models.Model):
     name = models.CharField(
@@ -32,15 +30,16 @@ class Post(models.Model):
         null=True,
         upload_to='post_images/%y/%m/%d'
     )
-    author = models.ManyToManyField(
-        BlogUser,
-        null=True,
-    )
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
         null=True,
     )
+    # author = models.ForeignKey(
+    #     'users.BlogUser',
+    #     on_delete=models.CASCADE,
+    #     null=True,
+    # )
 
     def __str__(self):
         return self.title
@@ -48,5 +47,5 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse(
             'posts_by_author',
-            kwargs={'slug': self.slug}
+            kwargs={'pk': self.id}
         )

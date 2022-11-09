@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  {% block content %}
+
+  <img src="{{ post.image.url }}" alt="">
+  <h3>{{ post.category }}</h3>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.body }}</p>
+  {% for i in request.user_set.all %}
+  {{ i.username }}
+  {% endfor %}
+
+  {% endblock %}
+
+</body>
+</html>

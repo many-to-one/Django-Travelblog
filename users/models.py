@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
+from posts.models import Post
 
 
 class BlogUser(AbstractUser):
@@ -13,6 +14,9 @@ class BlogUser(AbstractUser):
     )
     is_director = models.BooleanField(
         default=False,
+    )
+    posts = models.ManyToManyField(
+        Post,
     )
 
     REQUIRED_FIELDS =['email']

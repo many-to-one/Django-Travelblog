@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, DetailView
 
 from posts.models import Post
 
@@ -15,11 +15,12 @@ class CreatePost(CreateView):
     template_name = 'create_post.html'
 
 
-class PostsByAuthor(ListView):
+class PostByAuthor(DetailView):
     model = Post
-    template_name = 'posts_by_author.html'
+    context_object_name = 'post'
+    template_name = 'post_by_author.html'
 
     def get_queryset(self):
         return Post.objects.filter(
-            slug=self.kwargs['slug']
+            id=self.kwargs['pk']
         )

@@ -19,7 +19,7 @@ class BlockUserAdmin(UserAdmin):
     )
 
     fieldsets = (
-        (None, {'fields': ('username', 'photo', 'email', 'password')}),
+        (None, {'fields': ('username', 'photo', 'email', 'password', 'posts')}),
         ('Permissions', {'fields': ('is_admin', 'is_director', 'is_active', 'is_superuser')}),
     )
     add_fieldsets = (
