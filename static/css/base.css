@@ -1,0 +1,424 @@
+body{
+    margin: 10px;
+    padding: 0;
+}
+
+/*_________________________HOME________________________*/
+
+.title-descr{
+    width: 1200px;
+    height: auto;
+    margin: auto;
+    margin-top: 100px;
+    position: relative;
+}
+
+.title-descr h1{
+    font-family: Impact;
+    padding-bottom: 25px;
+    font-size: 60px;
+    word-spacing: 10px;
+}
+
+.title-descr p{
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+}
+
+.t-d-btn{
+    width: auto;
+    height: 25px;
+    margin: auto;
+    background-color: azure;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    font-family: Arimo;
+}
+
+.mnt-hp-img{
+    margin: 10px;
+    margin-left: 750px;
+    margin-top: -250px;
+    width: 600px;
+    height: 400px;
+}
+
+.category-grid-container-title h4{
+    text-align: center;
+    font-family: Impact;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+/*.category-grid-container{
+    display: flex;
+    grid-gap: 8px;
+    margin: 10px 0;
+    border: none;
+}*/
+
+.category-grid-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 2px;
+    margin: 0 13%;
+}
+
+/*.c-g-elem{
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    justify-content: center;
+    align-items: center;
+}*/
+
+.c-g-elem{
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-g-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.c-g-link{
+    font-family: 'Franklin Gothic Medium';
+    list-style: none;
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    border: 1px solid black;
+    background-color: aliceblue;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.f-left{
+    margin-left: 10px;
+}
+
+.f-right{
+    margin-right: 10px;
+}
+
+/*_______________________SORT_ARTICLE_PAGE______________________*/
+
+.short-art-cont{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: auto;
+    max-width: 75%;
+}
+
+.short-art-cont .block{
+    grid-column: 1;
+    margin: 2% 10%;
+}
+
+.short-art-cont .block {
+    display: flex;
+    border: 1px solid black;
+    padding: 5px;
+    
+}
+
+.short-art-cont .block img{
+    float: left;
+    width: 200px;
+    height: 200px;
+}
+
+.short-art-cont .block .body{
+    margin: 0 10px;
+}
+
+.short-art-cont .block .body h4{
+    text-align: center;
+}
+
+/*_________________________ARTICLE_PAGE________________________*/
+
+.art-cont{
+
+    max-width: 50%;
+    margin-left: 25%;
+    padding: 10px;
+}
+
+.art-cont h1{
+    text-align: center;
+}
+
+.art-cont .info{
+    text-align: center;
+}
+
+.art-cont .info p{
+    display: inline-block;
+    margin: 0 5%;
+    font-family: Arimo;
+}
+
+.art-content{
+    margin-top: 30px;
+}
+
+.art-content img{
+    float: left;
+    width: 300px;
+    height: 300px;
+    padding-right: 20px;
+}
+
+.art-content p{
+    margin-top: -5px;
+    text-align: justify;
+}
+
+/*_________________________PROFILE_PAGE________________________*/
+
+.profile-cont{
+    display: block;
+    border: 1px solid black;
+    border-radius: 10px;
+    max-width: 50%;
+    max-height: 75vh;
+    margin: 50px 25%;
+    background-color: azure;
+}
+
+.profile-cont img{
+    width: 30%;
+    height: 20%;
+    margin: 5% 35%;
+}
+
+.profile-cont h1{
+    text-align: center;
+}
+
+/*_________________________REGISTER_PAGE________________________*/
+
+.reg-title .rt{
+    text-align: center;
+    font-family: Impact;
+    margin-top: 70px;
+    text-shadow: 2px 5px 10px gray;
+}
+
+.register-cont{
+    width: 30%;
+    height: 50vh;
+    margin: 3% 35%;
+    border: none;
+    border-radius: 10px;
+    background-color: azure;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.register-cont .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.register-cont .content h3{
+    font-family: 'Franklin Gothic Medium';
+}
+
+.register-cont .content .r-data-in{
+    display: flex;
+    width: 350px;
+    height: 30px;
+    margin: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid lightseagreen;
+    outline: none;
+}
+
+.register-cont .content button{
+    width: 350px;
+    height: 35px;
+    background-color: lightblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/*_________________________LOGIN_PAGE________________________*/
+
+.login-cont{
+    margin: 3% 35%;
+    display: flex;
+    width: 30%;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    border-radius: 10px;
+    background-color: azure;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.login-cont .login-data .l-data-in{
+    margin-bottom: 1rem;
+    display: flex;
+    width: 350px;
+    height: 30px;
+    margin: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid lightseagreen;
+    outline: none;
+}
+
+.login-cont .login-title h1{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+}
+
+.login-cont .btn-login{
+    width: 350px;
+    height: 35px;
+    background-color: lightblue;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+/*_________________________ADD_ARTICLE________________________*/
+
+.add-title{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+}
+
+.add-art-cont{
+    margin: 0 15%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20px 20px 20px 20px 20px 60px 40px;
+    gap: 50px;
+    border: 1px solid black;
+    background-color: azure;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    font-family: 'Franklin Gothic Medium';
+}
+
+.add-art-cont .container{
+    margin: 25px;
+}
+
+.add-art-cont .slug{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.add-art-cont .category{
+    grid-column: 1/2;
+    grid-row: 3/4;
+    
+}
+
+.add-art-cont .sub_category {
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+.add-art-cont .photo{
+    grid-column: 1/2;
+    grid-row: 6/7;
+}
+
+.add-art-cont .snippet{
+    grid-column: 1/2;
+    grid-row: 7/8;
+}
+
+.add-art-cont .body{
+    margin: 20px;
+    grid-column: 2/4;
+    grid-row: 1/7;
+} 
+
+.add-art-cont .body textarea{
+    width: 510px;
+    height: 365px;
+} 
+
+.add-art-cont .title{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.add-art-cont input{
+    width: 300px;
+    height: 30px;
+    border: 1px solid black;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.add-art-cont select{
+    width: 310px;
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.add-art-cont input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background-color: beige;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: rgb(86, 86, 86);
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+.add-art-cont textarea{
+    background-color: beige;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    outline: none;
+  }
+
+  .add-art-cont .btn{
+    grid-column: 2/3;
+    grid-row: 7/8;
+    margin: -30px;
+    margin-left: 20px;
+    justify-content: center;
+  }
+
+  .add-art-cont .btn button{
+    width: 515px;
+    height: 35px;
+    background-color: rgb(136, 196, 196);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    color:aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  .add-art-cont .btn button:hover{
+    background-color: rgb(8, 130, 167);
+    transition: all 2s ease;
+  }

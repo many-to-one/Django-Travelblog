@@ -8,10 +8,6 @@ from .forms import BlogUserCreationForm, BlogUserChangeForm, BlogPhotoChangeForm
 from django.urls import reverse_lazy
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
 def success(request):
     return render(request, 'success.html')
 

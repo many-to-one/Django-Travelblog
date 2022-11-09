@@ -2,7 +2,24 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, \
     DeleteView
-from posts.models import Post
+from .models import Post, Category
+from users.models import BlogUser
+
+
+class Home(ListView):
+    model = Post
+    template_name = 'home.html'
+    queryset = Post.objects.all()
+    context_object_name = 'posts'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {
+            'categories': Category.objects.all(),
+            'posts': Post.objects.all(),
+            'users': BlogUser.objects.all(),
+        }
+        return context
 
 
 class CreatePost(CreateView):
