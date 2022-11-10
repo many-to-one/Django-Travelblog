@@ -12,6 +12,10 @@ class Category(models.Model):
     slug = models.SlugField(
         null=True,
     )
+    snippet = models.TextField(
+        null=True,
+        max_length=200,
+    )
     image = models.ImageField(
         null=True,
         upload_to=('categories/%Y/%m/%d')
@@ -37,6 +41,10 @@ class Post(models.Model):
     )
     body = models.TextField(
         null=True,
+    )
+    snippet = models.TextField(
+        null=True,
+        max_length=200,
     )
     image = models.ImageField(
         null=True,
