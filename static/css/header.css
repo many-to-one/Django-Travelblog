@@ -1,24 +1,17 @@
-#hbg{
-   background-size: 1620px 750px;
-}
-
 header .nav-cont{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    width: 95%;
-    height: 80vh;
-    margin: 25px;
+    width: 100%;
+    height: 950px;
+    background-size: 1920px 950px;
 }
 
 .logo{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
-}
-
-.nav{
-    margin-bottom: 5px;
+    margin: 15px 15px;
 }
 
  .nav ul{
@@ -42,6 +35,7 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 15px;
 }
 
 .exit li{

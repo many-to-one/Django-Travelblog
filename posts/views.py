@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, \
@@ -18,6 +20,7 @@ class Home(ListView):
             'categories': Category.objects.all(),
             'posts': Post.objects.all(),
             'users': BlogUser.objects.all(),
+            'post_json': json.dumps(list(Post.objects.values()))
         }
         return context
 

@@ -10,20 +10,35 @@
     <title>Document</title>
 </head>
 <body>
+
     {% block content %}
 
-    {% for post in posts %}
-        {{ post.title }}
-    {% endfor %}
+        <div class="home-container">
 
-    {% for cat in categories %}
-        {{ cat.name }}
-    {% endfor %}
+<!--______________________________CATEGORIES____________________________-->
 
-    {% for us in users %}
-        {{ us.username }}
-    {% endfor %}
+            {% for cat in categories %}
+
+                {% if cat.index is odd %}
+                    <div class="cat-cont-odd">
+                        <div class="cat-img-l">
+                            <img src="{{ cat.image.url }}" alt="">
+                        </div>
+                        <div class="cat-descrp-p">
+                            {{ cat.name }}
+                        </div>
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
 
     {% endblock %}
+
+<script>
+console.log('hello')
+</script>
 </body>
 </html>

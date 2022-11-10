@@ -12,6 +12,10 @@ class Category(models.Model):
     slug = models.SlugField(
         null=True,
     )
+    image = models.ImageField(
+        null=True,
+        upload_to=('categories/%Y/%m/%d')
+    )
 
     def __str__(self):
         return self.name
@@ -36,7 +40,7 @@ class Post(models.Model):
     )
     image = models.ImageField(
         null=True,
-        upload_to='post_images/%y/%m/%d'
+        upload_to='post_images/%Y/%m/%d'
     )
     category = models.ForeignKey(
         Category,
