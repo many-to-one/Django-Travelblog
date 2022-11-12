@@ -26,6 +26,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 120px;
 }
 
 .cat-img-p img{
@@ -42,28 +44,50 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 120px;
 }
 
-.cat-descrp-p .btn{
-    background: blue;
+.descrp-name{
+    margin-top: -50px;
+}
+
+.descrp-snippet{
+    margin-top: 50px;
+}
+
+.categories-btn{
+    background: none;
+    margin-top: 50px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 15px;
 }
 
 .cat-descrp-l h3{
     color: white;
     justify-content: center;
+    font-size: 50px;
 }
 
 .cat-descrp-p h3{
     color: white;
     justify-content: center;
+    font-size: 50px;
 }
 
 .cat-descrp-l p{
     color: white;
+    font-size: 20px;
 }
 
 .cat-descrp-p p{
     color: white;
+    font-size: 20px;
 }
 
 .descrp-name{
