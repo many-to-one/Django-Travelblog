@@ -139,4 +139,6 @@
     align-items: center;
     justify-content: center;
     color: white;
-}
+    background: linear-gradient(90deg, rgba(16,16,17,0.8018557764902836) 0%, 
+    rgba(175,175,186,0.06235997817095584) 49%, rgba(27,27,27,0.7458333675266982) 100%);
+}    
