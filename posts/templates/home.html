@@ -17,6 +17,10 @@
 
 <!--______________________________CATEGORIES____________________________-->
 
+            <div class="home-top-image">
+                <img src="{% static 'img/header.jpg' %}" alt="">
+            </div>
+
             {% for cat in categories %}
 
                 {% if forloop.counter|divisibleby:2 %}
