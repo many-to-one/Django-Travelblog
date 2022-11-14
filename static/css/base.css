@@ -1,3 +1,5 @@
+/* ______________________________HOME_PAGE____________________________ */
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
 }
 
 .home-top-image img{
-    width: 1900px;
+    width: 100%;
     height: 945px;
     margin-bottom: -10px;
 }
@@ -89,4 +91,52 @@
     font-size: 15px;
     font-family: 'Franklin Gothic Medium';
     cursor: pointer;
+}
+
+/* ______________________________POST_BY_CATEGORY____________________________ */
+
+.header-img img{
+    width: 100%;
+    height: 100vh;
+}
+
+.header-img .header-txt{
+    position: absolute;
+    top: 0;
+    padding: 20%;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+}
+
+.post-by-category-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 300px));
+    gap: none;
+    justify-content: space-around;
+}
+
+.post-container{
+    border: 1px solid black;
+    width: 350px;
+    height: 200px;
+    position: relative;
+}
+
+.post-container img{
+    position: absolute;
+    width: 350px;
+    height: 200px;
+}
+
+.post-container .inside-grid{
+    width: 350px;
+    height: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }

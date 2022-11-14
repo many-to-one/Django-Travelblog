@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,21 +10,36 @@
 <body>
 
   {% block content %}
+
+  <div class="header-img">
+    <img src="{% static 'img/asia/asia-header.jpg' %}" alt="">
+    <div class="header-txt">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Totam, adipisci quia iure sunt quos ratione esse aspernatur inventore vero hic!</p>
+    </div>
+  </div>
+
+  <div class="post-by-category-container">
+
     {% for post in posts %}
+
+      <div class="post-container">
+
         {% if post.image %}
       <img src="{{ post.image.url }}" alt="">
         {% else %}
       <p>No image</p>
         {% endif %}
-      <h3>{{ post.category }}</h3>
-
-      <h1>{{ post.title }}</h1>
-
-      <p>{{ post.body }}</p>
-
-      <p>Author: {{ post.author.username }}</p>
+      <div class="inside-grid">   
+        <h1>{{ post.title }}</h1>
+        <p>Author: {{ post.author.username }}</p>
+      </div> 
+    </div>
 
     {% endfor %}
+
+  </div>
+
   {% endblock %}
 
 </body>
