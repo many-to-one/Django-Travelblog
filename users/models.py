@@ -14,9 +14,6 @@ class BlogUser(AbstractUser):
     is_director = models.BooleanField(
         default=False,
     )
-    # posts = models.ManyToManyField(
-    #     Post,
-    # )
 
     REQUIRED_FIELDS = ['email']
     
@@ -25,7 +22,4 @@ class BlogUser(AbstractUser):
             'profile_view',
             kwargs={'pk': self.id}
         )
-
-    # def get_all_posts(self):
-    #     return self.post_set.all()
 

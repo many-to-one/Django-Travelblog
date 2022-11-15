@@ -20,14 +20,18 @@ class Category(models.Model):
         null=True,
         upload_to=('categories/%Y/%m/%d')
     )
+    image_header = models.ImageField(
+        null=True,
+        upload_to=('categories/%Y/%m/%d')
+    )
 
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse(
             'posts_by_category',
-            kwargs={'slug': self.slug}
+            kwargs={'pk': str(self.id)}
         )
 
 
@@ -59,6 +63,9 @@ class Post(models.Model):
         BlogUser,
         on_delete=models.CASCADE,
         null=True,
+    )
+    views = models.IntegerField(
+        default=0,
     )
 
     def __str__(self):

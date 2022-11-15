@@ -60,13 +60,16 @@ class DeletePost(DeleteView):
 
 class PostView(DetailView):
     model = Post
-    context_object_name = 'post'
     template_name = 'post_view.html'
 
-    def get_queryset(self):
-        return Post.objects.filter(
-            id=self.kwargs['pk']
-        )
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {
+            'post': Post.objects.filter(id=self.kwargs['pk']),
+            'posts': Post.objects.all(),
+            # 'author': Post.objects.filter(author__id=self.kwargs['pk'])
+        }
+        return context
 
 
 class PostsByAuthor(ListView):
@@ -85,11 +88,13 @@ class PostsByCategory(ListView):
     context_object_name = 'posts'
     template_name = 'posts_by_category.html'
 
-    def get_queryset(self):
-        return Post.objects.filter(
-            category__slug=self.kwargs['slug']
-        )
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context = {
+            'posts': Post.objects.filter(category__id=self.kwargs['pk']),
+            'categories': Category.objects.filter(id=self.kwargs['pk']),
+        }
+        return context
 
 class AllPosts(ListView):
     model = Post

@@ -11,21 +11,24 @@
 <main class="post-by-category">
     {% block content %}
 
+    {% for cat in categories %}
+
     <div class="top-img">
-        <img src="{% static 'img/asia/asia-header.jpg' %}" alt="">
+        <img src="{{ cat.image_header.url }}" alt="">
         <div class="header-txt">
-            <h3>ASIA</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Totam, adipisci quia iure sunt quos ratione esse aspernatur
-                inventore vero hic!</p>
+            <h3>{{ cat.name }}</h3>
+            <p>{{ cat.snippet }}</p>
         </div>
     </div>
+
+    {% endfor %}
 
     <div class="post-by-category-container">
 
         {% for post in posts %}
 
-        <div class="post-container">
+        <a href="{{ post.get_absolute_url }}">
+            <div class="post-container">
 
             {% if post.image %}
             <img src="{{ post.image.url }}" alt="">
@@ -35,6 +38,7 @@
                 <p>Author: {{ post.author.username }}</p>
             </div>
         </div>
+        </a>
 
         {% endfor %}
 

@@ -9,5 +9,5 @@ urlpatterns = [
     path('post_view/<pk>/', PostView.as_view(), name='post_view'),
     path('posts_by_author/<pk>/', PostsByAuthor.as_view(), name='posts_by_author'),
     path('all_posts/', AllPosts.as_view(), name='all_posts'),
-    path('posts_by_category/<slug>/', PostsByCategory.as_view(), name='posts_by_category'),
+    path('posts_by_category/<pk>/', PostsByCategory.as_view(), name='posts_by_category'),
 ]

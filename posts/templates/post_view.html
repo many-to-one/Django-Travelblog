@@ -8,33 +8,52 @@
 </head>
 <body>
 
-  {% block content %}
-    {% if post.image %}
-  <img src="{{ post.image.url }}" alt="">
-    {% else %}
-  <a href="{% url 'update_post' post.pk %}">
-      Add photo
-  </a>
-    {% endif %}
-  <h3>{{ post.category }}</h3>
-  <h1>{{ post.title }}</h1>
-  <p>{{ post.body }}</p>
-  <p>Author: {{ post.author.username }}</p>
+{% block content %}
 
-    <a href="{% url 'update_post' post.pk %}">
-      <button>
-          Edit Article
-      </button>
-    </a>
+<div class="post-view-container">
 
-    <a href="{% url 'delete_post' post.pk %}">
-      <button>
-          Delete
-      </button>
-  </a>
+    <!--______________________________POST_BODY____________________________-->
 
+    <div class="post-body">
+        {% for post in post %}
 
-  {% endblock %}
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="">
+        {% else %}
+        <a href="{% url 'update_post' post.pk %}">
+            Add photo
+        </a>
+        {% endif %}
+        <h3>{{ post.category }}</h3>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body }}</p>
+        <p>Author: {{ post.author.username }}</p>
+        <p>Views: {{ post.views }}</p>
+
+        <a href="{% url 'update_post' post.pk %}">
+            <button>
+                Edit Article
+            </button>
+        </a>
+
+        <a href="{% url 'delete_post' post.pk %}">
+            <button>
+                Delete
+            </button>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!--______________________________SIDEBAR____________________________-->
+
+    <div class="sidebar-by-category-container">
+        {% include 'posts_by_category.html' %}
+
+    </div>
+
+</div>
+
+{% endblock %}
 
 </body>
 </html>
