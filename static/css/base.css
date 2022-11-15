@@ -1,3 +1,6 @@
+
+/* ______________________________HOME_PAGE____________________________ */
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +8,7 @@
 }
 
 .home-top-image img{
-    width: 1900px;
+    width: 100%;
     height: 945px;
     margin-bottom: -10px;
 }
@@ -69,6 +72,7 @@
     font-size: 50px;
     font-family: 'Franklin Gothic Medium';
     color: white;
+<<<<<<< HEAD
     justify-content: center;
 }
 
@@ -89,4 +93,94 @@
     font-size: 15px;
     font-family: 'Franklin Gothic Medium';
     cursor: pointer;
+    justify-content: center;
+}
+
+.home-container p{
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium';
+    color: white;
+    justify-content: center;
+}
+
+.home-container .btn{
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    background: none;
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium';
+    cursor: pointer;
+}
+
+/* ______________________________POST_BY_CATEGORY____________________________ */
+
+body{
+    background-color: #525252;
+}
+
+.top-img img{
+    width: 100%;
+    height: 100vh;
+}
+
+.top-img .header-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 70%;
+    width: 60%;
+    margin-left: 20%;
+    /*padding: 20%;*/
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.top-img .header-txt h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.post-by-category-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 25%));
+}
+
+.post-container{
+    border: 1px solid black;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    transition: transform;
+    transition-duration: 1.5s;
+}
+
+.post-container:hover{
+    transform: skew(-10deg, 10deg);
+}
+
+.post-container img{
+    position: absolute;
+    width: 100%;
+    height: 200px;
+}
+
+.post-container .inside-grid{
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: linear-gradient(90deg, rgba(16,16,17,0.8018557764902836) 0%, 
+    rgba(175,175,186,0.06235997817095584) 49%, rgba(27,27,27,0.7458333675266982) 100%);
 }

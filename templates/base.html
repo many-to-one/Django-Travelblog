@@ -10,8 +10,11 @@
     <title>Document</title>
 </head>
 <body>
+
     {% include 'header.html' %}
+    
     {% block content %}
+   
 <h3>Hello {{ request.user }}</h3>
     {% endblock %}
 
