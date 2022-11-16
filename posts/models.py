@@ -74,5 +74,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse(
             'post_view',
-            kwargs={'pk': self.id}
+            kwargs={
+                'pk': self.id,
+                'cpk': self.category.id,
+                'apk': self.author.id,
+            }
         )

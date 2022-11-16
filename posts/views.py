@@ -63,11 +63,10 @@ class PostView(DetailView):
     template_name = 'post_view.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
         context = {
             'post': Post.objects.filter(id=self.kwargs['pk']),
-            'posts': Post.objects.all(),
-            # 'author': Post.objects.filter(author__id=self.kwargs['pk'])
+            'posts': Post.objects.filter(category__id=self.kwargs['cpk'])[:3],
+            'author': Post.objects.filter(author__id=self.kwargs['apk'])[:3],
         }
         return context
 
@@ -89,7 +88,6 @@ class PostsByCategory(ListView):
     template_name = 'posts_by_category.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
         context = {
             'posts': Post.objects.filter(category__id=self.kwargs['pk']),
             'categories': Category.objects.filter(id=self.kwargs['pk']),

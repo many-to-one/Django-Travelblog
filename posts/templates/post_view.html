@@ -51,6 +51,12 @@
 
     </div>
 
+    <div class="sidebar-post-by-author">
+        {% for ap in author %}
+            {{ ap.title }}
+        {% endfor %}
+    </div>
+
 </div>
 
 {% endblock %}
