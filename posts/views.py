@@ -65,8 +65,8 @@ class PostView(DetailView):
     def get_context_data(self, **kwargs):
         context = {
             'post': Post.objects.filter(id=self.kwargs['pk']),
-            'posts': Post.objects.filter(category__id=self.kwargs['cpk'])[:3],
-            'author': Post.objects.filter(author__id=self.kwargs['apk'])[:3],
+            'posts': Post.objects.filter(category__id=self.kwargs['cpk'])[:4],
+            'author': Post.objects.filter(author__id=self.kwargs['apk'])[:4],
         }
         return context
 
