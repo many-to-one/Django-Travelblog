@@ -43,12 +43,12 @@ class CreatePost(CreateView):
 
 class UpdatePost(UpdateView):
     model = Post
-    fields = [
+    fields = (
         'title',
         'image',
         'body',
         'category',
-    ]
+    )
     template_name = 'update_post.html'
 
 

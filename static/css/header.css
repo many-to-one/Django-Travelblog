@@ -1,5 +1,7 @@
 *{
     text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+    margin: 0;
+    padding: 0;
 }
 
 header .nav-cont{
