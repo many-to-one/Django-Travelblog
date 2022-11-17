@@ -24,10 +24,16 @@
                 <li><a href="#">CART</a></li>
             </ul>
         </div>
+        <div class="h-user">
+            <p>{{ request.user }}</p>
+            <li><a href="{% url 'logout_view' %}">LOG OUT</a></li>
+        </div>
+        {% if request.user.is_authenticate %}
         <div class="exit">
             <li><a href="{% url 'login' %}">LOG IN</a></li>
             <li><a href="{% url 'create_user' %}">SIGN IN</a></li>
         </div>
+        {% endif %}
     </div>
 </header>
 

@@ -42,6 +42,27 @@ a{
     text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
 }
 
+.h-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 15px;
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.h-user p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    /* margin: 15px 15px; */
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.h-user li{
+    list-style: none;
+    margin: 0 15px;
+    text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
 .exit{
     display: flex;
     flex-direction: row;

@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView, UpdateView, \
     DeleteView, ListView
@@ -36,6 +36,11 @@ def login_form(request):
             messages.error(request, 'Your username or password is incorrect')
             return redirect('login')
     return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Log out')
+    return redirect('login')
 
 
 class UpdateUser(UpdateView):
