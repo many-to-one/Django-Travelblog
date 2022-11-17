@@ -67,6 +67,12 @@ class Post(models.Model):
     views = models.IntegerField(
         default=0,
     )
+    likes = models.ManyToManyField(
+        BlogUser,
+        default=0,
+        # related_name is important here for relationship, because of author
+        related_name='likes',
+    )
 
     def __str__(self):
         return self.title
@@ -80,3 +86,12 @@ class Post(models.Model):
                 'apk': self.author.id,
             }
         )
+
+    def get_views(self, *args, **kwargs):
+        self.views += 1
+        super().save(*args, **kwargs)
+        return self.views
+
+    def get_likes(self):
+
+        return self.likes.count()

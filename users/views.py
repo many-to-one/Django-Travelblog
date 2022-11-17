@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DetailView, UpdateView, \
     DeleteView, ListView
-
+from django.contrib import messages
 from posts.models import Post
 from .models import *
 from .forms import BlogUserCreationForm, BlogUserChangeForm, BlogPhotoChangeForm
@@ -14,8 +15,27 @@ def success(request):
 
 class CreateUser(CreateView):
     form_class = BlogUserCreationForm
-    success_url = reverse_lazy('success')
+    success_url = reverse_lazy('home')
     template_name = 'create_user.html'
+
+
+def login_form(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(
+            request,
+            username=username,
+            password=password,
+        )
+        if user is not None:
+            login(request, user)
+            messages.success(request, f'Hello, {user}')
+            return redirect('home')
+        else:
+            messages.error(request, 'Your username or password is incorrect')
+            return redirect('login')
+    return render(request, 'login.html')
 
 
 class UpdateUser(UpdateView):

@@ -1,7 +1,8 @@
 import json
 
-from django.shortcuts import render
-from django.urls import reverse
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, \
     DeleteView
 from .models import Post, Category
@@ -30,7 +31,7 @@ class CreatePost(CreateView):
     fields = (
         'title',
         'body',
-        # 'image',
+        'image',
         'category',
         'author',
     )
@@ -67,8 +68,14 @@ class PostView(DetailView):
             'post': Post.objects.filter(id=self.kwargs['pk']),
             'posts': Post.objects.filter(category__id=self.kwargs['cpk'])[:4],
             'author': Post.objects.filter(author__id=self.kwargs['apk'])[:4],
+            'most_read': Post.objects.all().order_by('-views')[:4],
         }
         return context
+
+def likes_view(request, pk, cpk, apk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.likes.add(request.user)
+    return redirect(reverse('post_view', kwargs={'pk': pk, 'cpk': cpk, 'apk': apk}))
 
 
 class PostsByAuthor(ListView):
