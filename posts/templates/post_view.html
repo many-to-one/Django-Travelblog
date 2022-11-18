@@ -41,11 +41,13 @@
             <div class="likes">
                 <form action="{% url 'likes_view' post.pk post.category.id post.author.id %}" method="POST">
                     {% csrf_token %}
-                    <button type="submit" name="post_id" value="{{ post.id }}">
+                    <button class="like-btn" type="submit" name="post_id" value="{{ post.id }}">
                         <img src="{% static 'icons/likes.png' %}" width="20px" height="20px">
+                         <!-- <p>Like</p>  -->
+                         <p>{{ post.get_likes }}</p>
                     </button>
                 </form>
-                <p> {{ post.get_likes }}</p>
+                <!-- <p> {{ post.get_likes }}</p> -->
             </div>
             {% if request.user.is_authenticated %}
             <a href="{% url 'update_post' post.pk %}">

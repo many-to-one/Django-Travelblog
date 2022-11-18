@@ -75,7 +75,7 @@ class PostView(DetailView):
 def likes_view(request, pk, cpk, apk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     post.likes.add(request.user)
-    return redirect(reverse('post_view', kwargs={'pk': pk, 'cpk': cpk, 'apk': apk}))
+    return HttpResponseRedirect(reverse('post_view', kwargs={'pk': pk, 'cpk': cpk, 'apk': apk}))
 
 
 class PostsByAuthor(ListView):

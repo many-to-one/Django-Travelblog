@@ -336,3 +336,22 @@ body{
     text-align: center;
     font-size: 10px;
 }
+
+.like-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    background-color: #38383b;
+}
+
+.like-btn:hover{
+    color: red;
+}
+
+.like-btn p{
+    color: white;
+}
