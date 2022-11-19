@@ -15,6 +15,8 @@
 
     <div class="post-view-container">
 
+<!--______________________________POST_GALLERY____________________________-->
+
         <div class="post-gallery">
             {% for post in post %}
 
@@ -29,11 +31,16 @@
             {% endfor %}
         </div>
 
+<!--______________________________POST_DESCRIPTION____________________________-->
+
         <div class="post-description">
             {% for post in post %}
-            <h3>{{ post.category }}</h3>
+            <div class="author-info">
+                <img class="avatar" src="{{ post.author.photo.url }}" alt="">
+                <p>{{ post.author }}</p>
+            </div>
             <h1>{{ post.title }}</h1>
-            <p>Author: {{ post.author.username }}</p>
+            <p>Category: {{ post.category }}</p>
             <div class="views">
                 <img src="{% static 'icons/views.png' %}" width="20px" height="20px">
                 <p> {{ post.get_views }}</p>
@@ -43,13 +50,11 @@
                     {% csrf_token %}
                     <button class="like-btn" type="submit" name="post_id" value="{{ post.id }}">
                         <img src="{% static 'icons/likes.png' %}" width="20px" height="20px">
-                         <!-- <p>Like</p>  -->
                          <p>{{ post.get_likes }}</p>
                     </button>
                 </form>
-                <!-- <p> {{ post.get_likes }}</p> -->
             </div>
-            {% if request.user.is_authenticated %}
+            {% if post.author == request.user %}
             <a href="{% url 'update_post' post.pk %}">
                 <button>
                     Edit Article
@@ -65,11 +70,63 @@
             {% endfor %}
         </div>
 
+<!--______________________________POST_BODY____________________________-->
+
         <div class="post-body">
+
             {% for post in post %}
             <p>{{ post.body }}</p>
             {% endfor %}
+
+            <br>
+
+<!--______________________________COMMENT_FORM____________________________-->
+
+            <div class="comment-form">
+                <h3>Live a comment</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="comment-body">
+                        {{ form.body }}
+                        <button class="btn" type="submit">
+                            Add comment
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+<!--______________________________COMMENTS____________________________-->
+
+            <br>
+            <br>
+            <div class="comment-container">
+
+                <div class="comments">
+
+                    <h3>Comments:</h3>
+                    <hr>
+                    <br>
+                    {% if comments %}
+                        {% for comment in comments %}
+
+                        <div class="comments-block">
+                            <img src="{{ comment.author.photo.url }}" >
+                            <p>{{ comment.author }}</p>
+                            <p class="body">{{comment.body}}</p>
+                        </div> 
+                        <br>   
+
+                        {% endfor %}
+                    {% else %} 
+                        <p>No comment yet, be the first..</p> 
+                    {% endif %}  
+        
+                </div>
+
+            </div>
+
         </div>
+
 
         <!--______________________________SIDEBAR____________________________-->
 

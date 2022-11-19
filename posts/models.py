@@ -95,3 +95,23 @@ class Post(models.Model):
     def get_likes(self):
 
         return self.likes.count()
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        null=True,
+    )
+    body = models.TextField(
+        max_length=500,
+        null=True,
+    )
+    author = models.ForeignKey(
+        BlogUser,
+        on_delete=models.CASCADE,
+        null=True,
+    )
+
+    def __str__(self):
+        return f'{self.post}: {self.body}'

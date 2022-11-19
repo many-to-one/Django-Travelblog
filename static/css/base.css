@@ -229,7 +229,7 @@ body{
 .post-view-container{
     display: grid;
     grid-template-columns: 6vw 50vw 5vw 20vw 6vw;
-    grid-template-rows: 80vh 12vh 40vh 2vh 40vh 2vh 40vh 10vh;
+    grid-template-rows: 80vh 12vh 40vh 2vh 40vh 2vh 40vh 10vh 20vw;
     gap: 5vh;
 }
 
@@ -255,9 +255,21 @@ body{
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    /* gap: 10px; */
     border: 1px solid black;
     background: #38383b;
+}
+
+.post-description .author-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.post-description .avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .post-body{
@@ -345,7 +357,7 @@ body{
     height: 30px;
     border: none;
     cursor: pointer;
-    background-color: #38383b;
+    background: transparent;
 }
 
 .like-btn:hover{
@@ -354,4 +366,57 @@ body{
 
 .like-btn p{
     color: white;
+}
+
+.comment-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.comments {
+    width: 50vw;
+    height: 20vh;
+    /* background-color: #e3e3e3; */
+    /* border: 1px solid black; */
+}
+
+.comments-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.comments-block img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.comments-block .body{
+    margin-left: 50px;
+}
+
+.comment-body #id_body{
+    width: 50vw;
+    height: 20vh;
+    background-color: #38383b;
+    color: white;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.comment-body .btn{
+    width: 100px;
+    height: 30px;
+    background-color: #e3e3e3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }

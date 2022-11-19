@@ -5,8 +5,9 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, \
     DeleteView
-from .models import Post, Category
+from .models import Post, Category, Comment
 from users.models import BlogUser
+from .forms import CommentForm
 
 
 class Home(ListView):
@@ -69,8 +70,23 @@ class PostView(DetailView):
             'posts': Post.objects.filter(category__id=self.kwargs['cpk'])[:4],
             'author': Post.objects.filter(author__id=self.kwargs['apk'])[:4],
             'most_read': Post.objects.all().order_by('-views')[:4],
+            'comments': Comment.objects.filter(post=self.get_object()),
+            'form': CommentForm(),
         }
         return context
+
+    def post(self, request, *args, **kwargs):
+        new_comment = Comment(
+            body=request.POST.get('body'),
+            author=self.request.user,
+            post=self.get_object()             
+        )
+        new_comment.save()
+        pk = self.kwargs['pk']
+        cpk = self.kwargs['cpk']
+        apk = self.kwargs['apk']
+        return HttpResponseRedirect(reverse('post_view', kwargs={'pk': pk, 'cpk': cpk, 'apk': apk}))
+
 
 def likes_view(request, pk, cpk, apk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
