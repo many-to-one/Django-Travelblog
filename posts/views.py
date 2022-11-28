@@ -8,6 +8,10 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, \
 from .models import Post, Category, Comment
 from users.models import BlogUser
 from .forms import CommentForm
+from .serializers import PostSerializer
+from rest_framework.decorators import api_view
+from django.http import JsonResponse
+from rest_framework.response import Response
 
 
 class Home(ListView):
@@ -122,3 +126,17 @@ class AllPosts(ListView):
     context_object_name = 'posts'
     queryset = Post.objects.all()
     template_name = 'all_posts.html'
+
+##################SERIALIZER##################
+
+@api_view(['GET'])
+def posts_list(request):
+    posts = Post.objects.all()
+    serializer = PostSerializer(posts, many=True)
+    return JsonResponse(serializer.data, safe=False)
+
+@api_view(['GET'])
+def post_list(request, pk):
+    posts = Post.objects.get(id=pk)
+    serializer = PostSerializer(posts, many=False)
+    return JsonResponse(serializer.data, safe=False)

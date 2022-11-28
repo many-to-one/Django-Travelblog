@@ -11,4 +11,6 @@ urlpatterns = [
     path('posts_by_author/<pk>/<apk>/', PostsByAuthor.as_view(), name='posts_by_author'),
     path('all_posts/', AllPosts.as_view(), name='all_posts'),
     path('posts_by_category/<pk>/', PostsByCategory.as_view(), name='posts_by_category'),
+    path('posts_list/', posts_list, name='posts_list'),
+    path('post_list/<str:pk>/', post_list, name='post_list'),
 ]
