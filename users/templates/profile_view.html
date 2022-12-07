@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,28 +13,70 @@
 
     {% block content %}
 
-    {{ user.username }}
+    <div class="container">
 
-    {% if user.photo %}
-    <img src="{{ user.photo.url }}" alt="user-photo">
-    {% else %}
-    <!-- update_user change to add_photo(create a function -> view -> form)  or try to upload it here-->
-    <a href="{% url 'update_photo' request.user.id %}">
-        <button>Add a photo</button>
-    </a>
-    {% endif %}
+        <div class="user-info">
 
-    {% for post in post_list %}
-    {{ post.title }}
-    {% endfor %}
+            <div class="user-photo">
+    
+                {% if user.photo %}
+                <img src="{{ user.photo.url }}" alt="user-photo" width="200px" height="200px">
+                {% else %}
+                <!-- update_user change to add_photo(create a function -> view -> form)  or try to upload it here-->
+                <a href="{% url 'update_photo' request.user.id %}">
+                    <button>Add a photo</button>
+                </a>
+                {% endif %}
+    
+            </div>
+    
+            <div class="user-details">
+                
+                <div class="username">
+                    <p>{{ user.username }}</p>
+                    <p>{{ user.age }}</p>
+                    <p>{{ user.city }}</p>   
+                </div>
+    
+                <div class="edit-info">
+                    <a href="{% url 'update_user' request.user.id %}">
+                        <button>Edit profile</button>
+                    </a>            
+                    <a href="{% url 'delete_user' request.user.id %}">
+                        <button>Delete profile</button>
+                    </a>
+                </div>
 
-    <a href="{% url 'update_user' request.user.id %}">
-        <button>Edit profile</button>
-    </a>
+            </div>
+    
+        </div>
+        
+        <div class="user-posts">
+            
+            <div class="post-by-category-container">
 
-    <a href="{% url 'delete_user' request.user.id %}">
-        <button>Delete profile</button>
-    </a>
+                {% for post in posts %}
+        
+                <a href="{{ post.get_absolute_url }}">
+                    <div class="post-container">
+        
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="">
+                    {% endif %}
+                    <div class="inside-grid">
+                        <h1>{{ post.title }}</h1>
+                        <p>Author: {{ post.author.username }}</p>
+                    </div>
+                </div>
+                </a>
+        
+                {% endfor %}
+        
+            </div>
+
+        </div>
+
+    </div>    
 
     {% endblock %}
 

@@ -18,6 +18,8 @@ class BlogUserCreationForm(UserCreationForm):
         model = BlogUser
         fields = [
             'username',
+            'age',
+            'city',
             'email',
             'photo',
             'password1',

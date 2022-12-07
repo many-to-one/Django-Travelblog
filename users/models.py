@@ -8,6 +8,13 @@ class BlogUser(AbstractUser):
         null=True,
         upload_to='photo/%Y/%m/%d'
     )
+    age = models.IntegerField(
+        null=True
+    )
+    city = models.CharField(
+        null=True,
+        max_length=20,
+    )
     is_admin = models.BooleanField(
         default=False,
     )
