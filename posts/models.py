@@ -93,7 +93,6 @@ class Post(models.Model):
         return self.views
 
     def get_likes(self):
-
         return self.likes.count()
 
 

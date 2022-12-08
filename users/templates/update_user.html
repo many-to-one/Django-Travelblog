@@ -12,9 +12,12 @@
     
     {% block content %}
 
-    <form method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class='sp-form'>
         {% csrf_token %}
         {{ form.as_p }}
+        <button class="login-btn" type="submit">
+            Submit
+        </button>
     </form>
 
     {% endblock %}

@@ -10,16 +10,18 @@
 
     {% block content %}
 
-    <h1>Are you sure?</h1>
-
-    <form method="POST">
+    <form method="POST" class='sp-form'>
         {% csrf_token %}
-        <input type="submit" value="Delete">
-    </form>
+        <h1>Are you sure?</h1>
 
-    <a href="{% url 'profile_view' request.user.id %}">
-        Cancel
-    </a>
+        <button class="login-btn" type="submit">
+            Delete
+        </button>
+        <br><br>
+        <a href="{% url 'profile_view' request.user.id %}">
+            Cancel
+        </a>
+    </form>
 
     {% endblock %}
 

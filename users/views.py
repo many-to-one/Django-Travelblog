@@ -46,15 +46,8 @@ def logout_view(request):
 class UpdateUser(UpdateView):
     model = BlogUser
     form_class = BlogUserChangeForm
-    success_url = reverse_lazy('success')
-    template_name = 'create_user.html'
-
-
-class UpdatePhoto(UpdateView):
-    model = BlogUser
-    form_class = BlogPhotoChangeForm
-    success_url = reverse_lazy('success')
-    template_name = 'create_user.html'
+    success_url = reverse_lazy('home')
+    template_name = 'update_user.html'
 
 
 class ProfileView(DetailView):
@@ -73,5 +66,5 @@ class ProfileView(DetailView):
 
 class DeleteUser(DeleteView):
     model = BlogUser
-    success_url = reverse_lazy('success')
+    success_url = reverse_lazy('home')
     template_name = 'delete_profile.html'

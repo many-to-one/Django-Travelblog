@@ -1,0 +1,25 @@
+#create-post {
+    width: 600px;
+    height: auto;
+}
+
+#id_body {
+    background-color: rgba(134, 134, 134, 0.13);
+    height: auto;
+    width: 98%;
+}
+
+#id_category {
+    background-color: rgba(134, 134, 134, 0.13);
+    height: auto;
+}
+
+#id_category option {
+    background-color: rgba(134, 134, 134, 0.13);
+}
+
+#id_author {
+    background-color: rgba(134, 134, 134, 0.13);
+    height: auto;
+    opacity: 0;
+}

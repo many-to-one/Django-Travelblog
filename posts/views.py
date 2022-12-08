@@ -19,6 +19,7 @@ class Home(ListView):
     template_name = 'home.html'
     queryset = Post.objects.all()
     context_object_name = 'posts'
+    allow_empty = False
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -44,8 +45,7 @@ class CreatePost(CreateView):
 
     def get_initial(self):
         self.initial.update({'author': self.request.user})
-        return self.initial
-
+        return self.initial    
 
 class UpdatePost(UpdateView):
     model = Post
@@ -102,6 +102,7 @@ class PostsByAuthor(ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'posts_by_author.html'
+    allow_empty = False
 
     def get_queryset(self):
         return Post.objects.filter(
@@ -113,6 +114,7 @@ class PostsByCategory(ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'posts_by_category.html'
+    # allow_empty = False
 
     def get_context_data(self, **kwargs):
         context = {
@@ -126,6 +128,7 @@ class AllPosts(ListView):
     context_object_name = 'posts'
     queryset = Post.objects.all()
     template_name = 'all_posts.html'
+    allow_empty = False
 
 ##################SERIALIZER##################
 

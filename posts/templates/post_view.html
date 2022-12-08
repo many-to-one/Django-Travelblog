@@ -36,7 +36,9 @@
         <div class="post-description">
             {% for post in post %}
             <div class="author-info">
+                <a href="{% url 'profile_view' post.author.id %}">
                 <img class="avatar" src="{{ post.author.photo.url }}" alt="">
+                </a>
                 <p>{{ post.author }}</p>
             </div>
             <h1>{{ post.title }}</h1>

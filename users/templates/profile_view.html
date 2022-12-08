@@ -38,7 +38,14 @@
                     <p>{{ user.city }}</p>   
                 </div>
     
+                {% if user == request.user %}
+
                 <div class="edit-info">
+
+                    <a href="{% url 'create_post' %}">
+                        <button>Create post</button>
+                    </a>
+
                     <a href="{% url 'update_user' request.user.id %}">
                         <button>Edit profile</button>
                     </a>            
@@ -46,6 +53,8 @@
                         <button>Delete profile</button>
                     </a>
                 </div>
+
+                {% endif %}
 
             </div>
     

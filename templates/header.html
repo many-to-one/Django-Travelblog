@@ -16,21 +16,20 @@
         <div class="logo">My Travel Blog</div>
         <div class="nav">
             <ul>
-                <li><a href="{% url 'home' %}">HOME</a></li>
+                <li><a href="{% url 'home' %}">HOME</a></li>  
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="{% url 'profile_view' request.user.id %}">PROFILE</a></li>
                 <li class="dropdown"><a href="#">CATEGORIES</a>
                     <ul>
                         <li><a href="{% url 'posts_by_category' 1 %}">Asia</a></li>
                         <li><a href="{% url 'posts_by_category' 2 %}">Europe</a></li>
-                        <li><a href="{% url 'posts_by_category' 3 %}">Australia</a></li>
+                        <li><a href="{% url 'posts_by_category' 7 %}">Australia</a></li>
                         <li><a href="{% url 'posts_by_category' 4 %}">North America</a></li>
                         <li><a href="{% url 'posts_by_category' 5 %}">South America</a></li>
                         <li><a href="{% url 'posts_by_category' 6 %}">Africa</a></li>
                     </ul>
-                </li>  
-                <li><a href="#">CONTACT</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="{% url 'profile_view' request.user.id %}">PROFILE</a></li>
-                <li><a href="#">CART</a></li>
+                </li>
             </ul>
         </div>
         {% if request.user.is_authenticate %}

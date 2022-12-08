@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -8,25 +9,39 @@
     <title>Title</title>
 </head>
 <body>
-{% include 'header.html' %}
+
+{% block content %}
+
 <div class="login-image">
-    <img src="{% static 'img/header.jpg' %}" alt="">
+    <img src="{% static 'img/header.jpg' %}" alt="" width='100%' height='950px'>
+    
+    <div class="login-container">
+
+        <form method='POST' class='sp-form'>
+            {% csrf_token %}
+            <h3>Login Here</h3>
+
+            <label for="username">Username</label>
+            <input type="text" placeholder="username" name="username">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" name="password">
+
+            <button class="login-btn" type="submit">
+                Log in
+            </button>
+
+            <div class="social">
+              <div class="go"><i class="fab fa-google"></i>  Google</div>
+              <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+            </div>
+        </form>
+
+    </div>
+
 </div>
 
-<div class="login-container">
-    <form method="POST">
-        {% csrf_token %}
-        <div class="username">
-            <input type="text" name="username">
-        </div>
-        <div class="password">
-            <input type="password" name="password">
-        </div>
-        <div class="login-btn">
-            <input type="submit">
-        </div>
-    </form>
-</div>
+{% endblock %}
 
 </body>
 </html>
