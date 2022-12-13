@@ -9,17 +9,17 @@
     width: 98%;
 }
 
-#id_category {
-    background-color: rgba(134, 134, 134, 0.13);
+ #id_category {
+    background: rgba(134, 134, 134, 0.13);
     height: auto;
-}
-
-#id_category option {
-    background-color: rgba(134, 134, 134, 0.13);
 }
 
 #id_author {
     background-color: rgba(134, 134, 134, 0.13);
     height: auto;
     opacity: 0;
+}
+
+.sp-form #id_category option  {
+    background: gray;
 }
